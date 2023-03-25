@@ -1,0 +1,92 @@
+
+<div class="container" style="margin-bottom: 100px">
+	<div class="row">
+		<div class="col">
+			<p class="h3">Inventory and Pricing</p>
+			<p class="h1 mb-3">{{ @title }}</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col"></div>
+		<div class="col">
+			<p class="h4"><strong>Stock</strong></p>
+		</div>
+		<div class="col">
+			<p class="h4"><strong>Rental Price</strong></p>
+		</div>
+		<div class="col">
+			<p class="h4"><strong>Purchase Price</strong></p>
+		</div>
+	</div>
+	<form method="post" action="">
+		<div class="row mb-3">
+			<div class="col">
+				<p class="h4"><strong>VHS</strong></p><strong>Aisle # </strong>{{ @vhs.location }}
+			</div>
+			<div class="col">
+					<strong>Qty</strong> {{ @vhs.inventory }}
+			</div>
+			<div class="col">
+				<p>{{ @vhs.rental }}</p>
+			</div>
+			<div class="col">
+				<p>{{ @vhs.purchase }}</p>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col">
+				<span class="h4"><strong>DVD</strong></span><br/><strong>Aisle # </strong>{{ @dvd.location }}
+			</div>
+			<div class="col">
+				<strong>Qty</strong> {{ @dvd.inventory }}</p>
+			</div>
+			<div class="col">
+				<p>{{ @dvd.rental }}</p>
+			</div>
+			<div class="col">
+				<p>{{ @dvd.purchase }}</p>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col">
+				<span class="h4"><strong>Blu-Ray</strong></span><br/><strong>Aisle # </strong>{{ @bluray.location }}
+			</div>
+			<div class="col">
+				<strong>Qty</strong> {{ @bluray.inventory }}</p>
+			</div>
+			<div class="col">
+				<p>{{ @bluray.rental }}</p>
+			</div>
+			<div class="col">
+				<p>{{ @bluray.purchase }}</p>
+			</div>
+		</div>
+		<div class="row mb-3">
+			<div class="col">
+				<p class="h4"><strong>Digital</strong></p>
+			</div>
+			<div class="col">
+				<p>n/a</p>
+			</div>
+			<div class="col">
+				<p>{{ @digital.rental }}</p>
+			</div>
+			<div class="col">
+				<p>{{ @digital.purchase }}</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<p class="h4"><strong>Availability: </strong>
+					<check if="{{ @available }}">
+					    <false><span>Not available</span></false>
+					    <true><span>Available</span><true>
+					</check>
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col"><a class="btn btn-info" href="/admin/{{ @movieid }}/edit">Change Inventory and Pricing</a></div>
+		</div>
+	</form>
+</div>

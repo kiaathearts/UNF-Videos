@@ -1,0 +1,35 @@
+
+<div class="container">
+	<div class="row">
+		<div class="col offset-md-1">
+			<p class="display-4">Thank you, your order has been successful!</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col offset-md-1">
+			<check if="{{ count(@rentals)>0 }}">
+				<p class="h3">Rentals</p>
+				<repeat group="{{ @rentals }}" value="{{ @rental }}">
+					<div>
+						{{ @rental['title'] }} ({{ @rental['inventory_type'] }})<br/>
+						<span style="margin-left: 20px">${{ @rental['daily'] }}/Day</span> | Due On {{ @rental['due'] }} </span><br/>
+						<span style="margin-left: 20px"> {{ @rental['rental_period'] }} Day total: ${{ @rental['amount'] }}.00</span>
+					</div>
+				</repeat>
+			</check>
+			<check if="{{ count(@purchases)>0 }}">
+				<p class="h3">Purchases</p>
+				<repeat group="{{ @purchases }}" value="{{ @purchase }}">
+					<div>
+						{{ @purchase['title'] }} ({{ @purchase['inventory_type'] }}) | ${{ @purchase['purchase_cost'] }}.00
+					</div>
+				</repeat>
+			</check>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col offset-md-1">
+			<p class="h3">Total: ${{ @total }}.00</p>
+		</div>
+	</div>
+</div>
